@@ -37,7 +37,7 @@ const previousExperience = [
   {
     role: "Associate Developer",
     company: "Prometheus Group",
-    period: "2024 — 2026",
+    period: "Jan 2024 — June 2025",
     summary:
       "Add a concise description of what you worked on, what domain you operated in, and the outcomes you drove.",
     metrics: ["SYSTEMS", "DELIVERY", "STRATEGY"],
@@ -45,15 +45,15 @@ const previousExperience = [
   {
     role: "Web Developer Intern",
     company: "Prometheus Group",
-    period: "2022 — 2024",
+    period: "Fall/Winter 2023",
     summary:
       "Add another experience summary here with a technical, product, or business-oriented emphasis.",
     metrics: ["PLATFORM", "CLIENTS", "EXECUTION"],
   },
   {
     role: "Software Engineer Intern",
-    company: "Earlier Company",
-    period: "2020 — 2022",
+    company: "Time's Arrow",
+    period: "Summer 2023",
     summary:
       "Use this space for a foundational role that shows growth, range, and progression over time.",
     metrics: ["BUILD", "ANALYSIS", "OPERATIONS"],
@@ -62,23 +62,23 @@ const previousExperience = [
 
 const projects = [
   {
-    name: "Project Alpha",
+    name: "Cognate",
     category: "SYSTEMS / PLATFORM",
     summary:
       "Describe the project clearly: what it is, why it matters, what stack or architecture it uses, and what outcome it created.",
     tags: ["React", "TypeScript", "API Design"],
-    href: "#",
+    href: "https://github.com/kevinshah-dev/cognate",
   },
   {
-    name: "Project Beta",
+    name: "PolicyPeer",
     category: "AI / AUTOMATION",
     summary:
       "Use this card for an AI, infrastructure, workflow, or product project with a concise case-study style description.",
     tags: ["LLMs", "Agents", "Data Flows"],
-    href: "#",
+    href: "https://policypeer.org",
   },
   {
-    name: "Project Gamma",
+    name: "Jeopardle",
     category: "ENGINEERING / PRODUCT",
     summary:
       "Add a third project that reinforces your technical depth, systems thinking, or product execution.",
@@ -90,7 +90,7 @@ const projects = [
 const contactLinks = [
   {
     label: "GitHub",
-    href: "https://github.com/yourusername",
+    href: "https://github.com/kevinshah-dev",
     icon: FaGithub,
   },
   {
@@ -122,7 +122,7 @@ export default function Home() {
               >
                 <div>
                   <div className="mb-8 inline-flex items-center gap-2 border border-white/15 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.24em] text-blue-300">
-                    PERSONAL SITE / SYSTEM PROFILE
+                    PERSONAL SITE
                   </div>
                   <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-white md:text-7xl lg:text-[5.4rem]">
                     Building thoughtful systems, products, and technical work.
@@ -147,74 +147,6 @@ export default function Home() {
                   >
                     Get In Touch
                   </a>
-                </div>
-              </motion.div>
-
-              <motion.div
-                {...fadeUp}
-                transition={{ duration: 0.55, ease: "easeOut", delay: 0.08 }}
-                className="col-span-12 md:col-span-5"
-              >
-                <div className="grid h-full min-h-[360px] grid-cols-6 grid-rows-6 gap-3">
-                  <div className="col-span-4 row-span-4 border border-white/12 bg-white/[0.03] p-5">
-                    <div className="mb-10 flex items-center justify-between text-[11px] uppercase tracking-[0.24em] text-white/45">
-                      <span>PROFILE MAP</span>
-                      <span>01</span>
-                    </div>
-                    <div className="grid h-[calc(100%-2.5rem)] grid-cols-4 grid-rows-4 gap-2">
-                      {Array.from({ length: 16 }).map((_, i) => (
-                        <div
-                          key={i}
-                          className={`border ${
-                            [1, 3, 6, 10, 14].includes(i)
-                              ? "border-blue-500/50 bg-blue-500/20"
-                              : "border-white/10 bg-white/[0.02]"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="col-span-2 row-span-2 border border-white/12 bg-blue-600/15 p-4">
-                    <div className="text-[11px] uppercase tracking-[0.24em] text-blue-300">
-                      Focus
-                    </div>
-                    <div className="mt-8 text-sm leading-6 text-white/80">
-                      AI
-                      <br />
-                      Systems
-                      <br />
-                      Product
-                    </div>
-                  </div>
-
-                  <div className="col-span-2 row-span-2 border border-white/12 bg-white/[0.03] p-4">
-                    <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                      Links
-                    </div>
-                    <div className="mt-8 text-sm leading-6 text-white/80">
-                      GitHub
-                      <br />
-                      LinkedIn
-                      <br />
-                      Email
-                    </div>
-                  </div>
-
-                  <div className="col-span-4 row-span-2 border border-white/12 bg-white/[0.03] p-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                          SYSTEM NOTE
-                        </div>
-                        <p className="mt-4 max-w-sm text-sm leading-6 text-white/72">
-                          Use this module for a short professional note, current
-                          focus, or personal thesis.
-                        </p>
-                      </div>
-                      <Blocks className="h-5 w-5 text-blue-400" />
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             </div>
@@ -564,12 +496,10 @@ export default function Home() {
                   Links / reach out
                 </div>
                 <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
-                  Add your GitHub, LinkedIn, email, and anything else you want
-                  people to find.
+                  Find me on Github, LinkedIn, or send me an email.
                 </h2>
                 <p className="mt-6 max-w-2xl text-base leading-7 text-black/66">
-                  Keep this minimal and direct. This section is meant to feel
-                  crisp and intentional, like the rest of the site.
+                  I’m always open to connecting with other people building interesting things.
                 </p>
               </div>
 
@@ -580,6 +510,8 @@ export default function Home() {
                     <a
                       key={link.label}
                       href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
                       className={`flex items-center justify-between p-6 transition hover:bg-black/[0.02] md:p-8 ${
                         index !== contactLinks.length - 1
                           ? "border-b border-black/10"

@@ -6,7 +6,6 @@ import {
   ExternalLink,
   Briefcase,
   FileText,
-  Blocks,
   ChevronRight,
 } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -95,17 +94,10 @@ const contactLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/ks539/",
     icon: FaLinkedin,
   },
-  { label: "Email", href: "mailto:you@example.com", icon: Mail },
-];
-
-const stats = [
-  { value: "01", label: "Current role module" },
-  { value: "03", label: "Experience entries" },
-  { value: "03", label: "Featured projects" },
-  { value: "03", label: "Writing samples" },
+  { label: "Email", href: "mailto:shahkevinh@gmail.com", icon: Mail },
 ];
 
 export default function Home() {
@@ -149,49 +141,6 @@ export default function Home() {
                   </a>
                 </div>
               </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="relative border-b border-black/10">
-        <LightGridLines />
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
-          <div className="col-span-12 border-x border-black/10 py-10 md:py-14">
-            <SectionLabel>Overview</SectionLabel>
-            <div className="grid grid-cols-12 gap-0 border border-black/10 bg-[#eef2f5]">
-              <div className="col-span-12 border-b border-black/10 p-6 md:col-span-7 md:border-b-0 md:border-r md:p-10">
-                <div className="max-w-3xl">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-700">
-                    Personal summary
-                  </p>
-                  <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-zinc-950 md:text-5xl">
-                    A personal site designed like a product system.
-                  </h2>
-                  <p className="mt-6 max-w-2xl text-base leading-7 text-black/66">
-                    Add a clear overview here. This area works well for your
-                    personal narrative: what you do now, what you have done
-                    before, and the kinds of work that define your edge.
-                  </p>
-                </div>
-              </div>
-              <div className="col-span-12 md:col-span-5">
-                <div className="grid h-full grid-cols-2">
-                  {stats.map((item) => (
-                    <div
-                      key={item.label}
-                      className="border-b border-l border-black/10 p-6 even:border-r-0 [&:nth-last-child(-n+2)]:border-b-0 md:p-8"
-                    >
-                      <div className="text-3xl font-semibold tracking-[-0.05em] md:text-4xl">
-                        {item.value}
-                      </div>
-                      <div className="mt-2 text-sm text-black/58">
-                        {item.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -305,8 +254,8 @@ export default function Home() {
               <div className="col-span-12 md:col-span-5">
                 <p className="max-w-xl text-sm leading-7 text-black/64 md:pl-10">
                   Replace the text below with real work. Each project module is
-                  structured to highlight context, technical choices, and why the
-                  work mattered.
+                  structured to highlight context, technical choices, and why
+                  the work mattered.
                 </p>
               </div>
             </div>
@@ -372,43 +321,29 @@ export default function Home() {
         <GridLines />
         <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
           <div className="col-span-12 border-x border-white/10 py-10 md:py-14">
-            <SectionLabel>Working Style</SectionLabel>
-            <div className="grid grid-cols-12 gap-6">
-              <motion.div {...fadeUp} className="col-span-12 md:col-span-6">
-                <div className="border border-white/10 bg-white/[0.03] p-6 md:p-8">
+            <SectionLabel>Resume</SectionLabel>
+            <motion.div {...fadeUp}>
+              <div className="grid grid-cols-12 gap-6 border border-white/10 bg-white/[0.03] p-6 md:items-center md:p-8">
+                <div className="col-span-12 md:col-span-8">
                   <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-300">
-                    Operating principles
+                    Resume
                   </div>
-                  <h2 className="mt-5 text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
-                    Structured thinking, clear systems, deliberate execution.
-                  </h2>
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-white/64 md:text-base">
+                    A concise overview of my technical background.
+                  </p>
                 </div>
-              </motion.div>
-              <motion.div
-                {...fadeUp}
-                transition={{ duration: 0.45, ease: "easeOut", delay: 0.06 }}
-                className="col-span-12 md:col-span-6"
-              >
-                <div className="grid grid-cols-2 gap-0 border border-white/10 bg-white/[0.03]">
-                  {[
-                    "Engineering rigor",
-                    "Product thinking",
-                    "Clear communication",
-                    "Systems design",
-                  ].map((item, i) => (
-                    <div
-                      key={item}
-                      className={`p-6 text-sm text-white/72 ${i < 2 ? "border-b border-white/10" : ""} ${i % 2 === 0 ? "border-r border-white/10" : ""}`}
-                    >
-                      <div className="text-[11px] uppercase tracking-[0.24em] text-white/40">
-                        0{i + 1}
-                      </div>
-                      <div className="mt-4 font-medium text-white">{item}</div>
-                    </div>
-                  ))}
+                <div className="col-span-12 flex md:col-span-4 md:justify-end">
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 border border-blue-500 bg-blue-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-500 sm:w-auto"
+                  >
+                    Open Resume <ExternalLink className="h-4 w-4" />
+                  </a>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -499,7 +434,8 @@ export default function Home() {
                   Find me on Github, LinkedIn, or send me an email.
                 </h2>
                 <p className="mt-6 max-w-2xl text-base leading-7 text-black/66">
-                  I’m always open to connecting with other people building interesting things.
+                  I’m always open to connecting with other people building
+                  interesting things.
                 </p>
               </div>
 

@@ -82,7 +82,7 @@ const projects = [
     summary:
       "Add a third project that reinforces your technical depth, systems thinking, or product execution.",
     tags: ["Design Systems", "Full Stack", "Analytics"],
-    href: "#",
+    href: "https://github.com/kevinshah-dev/jeopardle",
   },
 ];
 
@@ -117,12 +117,10 @@ export default function Home() {
                     PERSONAL SITE
                   </div>
                   <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-white md:text-7xl lg:text-[5.4rem]">
-                    Building thoughtful systems, products, and technical work.
+                    Kevin Shah
                   </h1>
                   <p className="mt-8 max-w-2xl text-base leading-7 text-white/68 md:text-lg">
-                    Replace this with a concise personal positioning statement.
-                    This should describe who you are, what you work on, and the
-                    kind of problems you like solving.
+                    Building thoughtful systems, products, and technical work.
                   </p>
                 </div>
 

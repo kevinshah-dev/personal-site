@@ -38,31 +38,31 @@ const previousExperience = [
     company: "Prometheus Group",
     period: "Jan 2024 — June 2025",
     summary:
-      "Add a concise description of what you worked on, what domain you operated in, and the outcomes you drove.",
-    metrics: ["SYSTEMS", "DELIVERY", "STRATEGY"],
+      "Built the web-based Planning & Scheduling module of the Prometheus Platform, which is an EAM software used by over 50,000 people across manufacturing, energy, utilities, and other industries worldwide.",
+    metrics: ["FRONTEND", "CLIENT-FACING", "ERP"],
   },
   {
     role: "Web Developer Intern",
     company: "Prometheus Group",
     period: "Fall/Winter 2023",
     summary:
-      "Add another experience summary here with a technical, product, or business-oriented emphasis.",
-    metrics: ["PLATFORM", "CLIENTS", "EXECUTION"],
+      "Contributed to the development of new features for the Prometheus Platform.",
+    metrics: ["FRONTEND", "CLIENT-FACING", "ERP"],
   },
   {
     role: "Software Engineer Intern",
     company: "Time's Arrow",
     period: "Summer 2023",
     summary:
-      "Use this space for a foundational role that shows growth, range, and progression over time.",
-    metrics: ["BUILD", "ANALYSIS", "OPERATIONS"],
+      "Worked with a lean team of 3 engineers to develop the Time's Arrow website.",
+    metrics: ["FULL-STACK", "ED-TECH"],
   },
 ];
 
 const projects = [
   {
     name: "Cognate",
-    category: "SYSTEMS / PLATFORM",
+    category: "AI",
     summary:
       "Describe the project clearly: what it is, why it matters, what stack or architecture it uses, and what outcome it created.",
     tags: ["React", "TypeScript", "API Design"],
@@ -70,7 +70,7 @@ const projects = [
   },
   {
     name: "PolicyPeer",
-    category: "AI / AUTOMATION",
+    category: "FRONTEND",
     summary:
       "Use this card for an AI, infrastructure, workflow, or product project with a concise case-study style description.",
     tags: ["LLMs", "Agents", "Data Flows"],
@@ -78,7 +78,7 @@ const projects = [
   },
   {
     name: "Jeopardle",
-    category: "ENGINEERING / PRODUCT",
+    category: "FRONTEND",
     summary:
       "Add a third project that reinforces your technical depth, systems thinking, or product execution.",
     tags: ["Design Systems", "Full Stack", "Analytics"],
@@ -148,7 +148,17 @@ export default function Home() {
         <LightGridLines />
         <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
           <div className="col-span-12 border-x border-black/10 py-10 md:py-14">
-            <SectionLabel>Experience</SectionLabel>
+            <div className="mb-6 flex items-center justify-between gap-4 border-b border-black/10 pb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black/55">
+              <span>Experience</span>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex shrink-0 items-center gap-2 border border-black/10 bg-zinc-950 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white transition hover:bg-blue-700"
+              >
+                View Resume <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
 
             <div className="grid grid-cols-12 gap-6">
               <motion.div {...fadeUp} className="col-span-12 md:col-span-5">
@@ -208,17 +218,17 @@ export default function Home() {
                           {item.company}
                         </div>
                       </div>
-                      <div className="col-span-12 md:col-span-6">
+                      <div className="col-span-12 md:col-span-5">
                         <p className="text-sm leading-7 text-black/66">
                           {item.summary}
                         </p>
                       </div>
-                      <div className="col-span-12 md:col-span-2 md:text-right">
+                      <div className="col-span-12 md:col-span-3 md:text-right">
                         <div className="flex flex-wrap gap-2 md:justify-end">
                           {item.metrics.map((metric) => (
                             <span
                               key={metric}
-                              className="border border-black/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-black/58"
+                              className="min-w-[5.75rem] shrink-0 whitespace-nowrap border border-black/10 px-2.5 py-1 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-black/58"
                             >
                               {metric}
                             </span>
@@ -246,15 +256,20 @@ export default function Home() {
             <div className="mb-8 grid grid-cols-12 gap-6">
               <div className="col-span-12 md:col-span-7">
                 <h2 className="max-w-4xl text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
-                  Projects presented as case-study modules, not simple cards.
+                  What I'm Working On
                 </h2>
               </div>
               <div className="col-span-12 md:col-span-5">
-                <p className="max-w-xl text-sm leading-7 text-black/64 md:pl-10">
-                  Replace the text below with real work. Each project module is
-                  structured to highlight context, technical choices, and why
-                  the work mattered.
-                </p>
+                <div className="flex md:justify-end">
+                  <a
+                    href="https://github.com/kevinshah-dev"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 border border-black/10 bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700 sm:w-auto"
+                  >
+                    View GitHub <FaGithub className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -311,37 +326,6 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden border-b border-black/10 bg-[#080a0e] text-white">
-        <GridLines />
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
-          <div className="col-span-12 border-x border-white/10 py-10 md:py-14">
-            <SectionLabel>Resume</SectionLabel>
-            <motion.div {...fadeUp}>
-              <div className="grid grid-cols-12 gap-6 border border-white/10 bg-white/[0.03] p-6 md:items-center md:p-8">
-                <div className="col-span-12 md:col-span-8">
-                  <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-300">
-                    Resume
-                  </div>
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-white/64 md:text-base">
-                    A concise overview of my technical background.
-                  </p>
-                </div>
-                <div className="col-span-12 flex md:col-span-4 md:justify-end">
-                  <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 border border-blue-500 bg-blue-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-500 sm:w-auto"
-                  >
-                    Open Resume <ExternalLink className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>

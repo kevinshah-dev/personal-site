@@ -151,7 +151,7 @@ export default function Home() {
             <div className="mb-6 flex items-center justify-between gap-4 border-b border-black/10 pb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black/55">
               <span>Experience</span>
               <a
-                href="/resume.pdf"
+                href="/Kevin_Resume.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex shrink-0 items-center gap-2 border border-black/10 bg-zinc-950 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white transition hover:bg-blue-700"

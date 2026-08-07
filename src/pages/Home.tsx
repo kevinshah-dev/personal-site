@@ -20,15 +20,15 @@ import { posts } from "../data/posts";
 
 const currentRole = {
   eyebrow: "CURRENT ROLE",
-  title: "Platform Engineer",
+  title: "AI Forward Deployed Engineer",
   company: "IBM",
   period: "July 2025 — Present",
   summary:
     "Partnered with enterprise financial services clients to support the design and implementation of IBM’s Automation portfolio solutions",
   highlights: [
     "Led the implementation of IBM Quantum Safe Explorer at Mastercard",
-    "Placeholder cross-functional collaboration or ownership detail",
-    "Placeholder technical focus, customer focus, or leadership contribution",
+    "Owned production deployment of an AI-native internal talent platform for IBM employees and managers, using IBM Bob and SAP SuccessFactors workflows to transform career history and goals into searchable talent profiles and curated development plans",
+    "Wrote extensive deployment documentation for State Farm, which was integral to their purchase of a multi-million dollar ELA contract",
   ],
 };
 
@@ -61,28 +61,28 @@ const previousExperience = [
 
 const projects = [
   {
+    name: "LeetBattle",
+    category: "MULTIPLAYER GAME",
+    summary:
+      "Built and deployed a real-time, two-player competitive coding platform where friends join private rooms, receive the same programming challenge, and race to submit the first solution that passes a hidden test suite",
+    tags: ["LLMs", "Agents", "Data Flows"],
+    href: "https://leetbattle.cenough.games/",
+  },
+  {
+    name: "CloseEnough Games",
+    category: "AI",
+    summary:
+      "Built and launched a unified browser-game platform featuring 11 daily and competitive games across history, literature, sports, music, news, trivia, and coding. ",
+    tags: ["React", "TypeScript", "API Design"],
+    href: "https://cenough.games",
+  },
+  {
     name: "Cognate",
     category: "AI",
     summary:
       "Describe the project clearly: what it is, why it matters, what stack or architecture it uses, and what outcome it created.",
     tags: ["React", "TypeScript", "API Design"],
     href: "https://github.com/kevinshah-dev/cognate",
-  },
-  {
-    name: "PolicyPeer",
-    category: "FRONTEND",
-    summary:
-      "Use this card for an AI, infrastructure, workflow, or product project with a concise case-study style description.",
-    tags: ["LLMs", "Agents", "Data Flows"],
-    href: "https://policypeer.org",
-  },
-  {
-    name: "Jeopardle",
-    category: "FRONTEND",
-    summary:
-      "Add a third project that reinforces your technical depth, systems thinking, or product execution.",
-    tags: ["Design Systems", "Full Stack", "Analytics"],
-    href: "https://github.com/kevinshah-dev/jeopardle",
   },
 ];
 

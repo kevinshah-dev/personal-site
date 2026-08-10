@@ -1,462 +1,284 @@
-import { Link } from "react-router-dom";
+import type { SVGProps } from "react";
 import { motion } from "framer-motion";
 import {
+  ArrowDown,
   ArrowRight,
+  ArrowUpRight,
   Mail,
-  ExternalLink,
-  Briefcase,
-  FileText,
-  ChevronRight,
 } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import {
-  SectionLabel,
-  GridLines,
-  LightGridLines,
-  Panel,
-  fadeUp,
-} from "../components/shared";
-import { posts } from "../data/posts";
+import { SectionHeading } from "../components/shared";
 
-const currentRole = {
-  eyebrow: "CURRENT ROLE",
-  title: "AI Forward Deployed Engineer",
-  company: "IBM",
-  period: "July 2025 — Present",
-  summary:
-    "Partnered with enterprise financial services clients to support the design and implementation of IBM’s Automation portfolio solutions",
-  highlights: [
-    "Led the implementation of IBM Quantum Safe Explorer at Mastercard",
-    "Owned production deployment of an AI-native internal talent platform for IBM employees and managers, using IBM Bob and SAP SuccessFactors workflows to transform career history and goals into searchable talent profiles and curated development plans",
-    "Wrote extensive deployment documentation for State Farm, which was integral to their purchase of a multi-million dollar ELA contract",
-  ],
-};
+function GitHubIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.23c-3.23.7-3.91-1.37-3.91-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.39.97.1-.75.4-1.27.74-1.56-2.58-.29-5.29-1.29-5.29-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.58.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.72 5.39-5.3 5.68.42.36.79 1.06.79 2.13v3.27c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .7Z" />
+    </svg>
+  );
+}
 
-const previousExperience = [
+function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.33V8.98h3.42v1.57h.05a3.75 3.75 0 0 1 3.38-1.86c3.61 0 4.28 2.38 4.28 5.47v6.29ZM5.31 7.41a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.04H3.53V8.98h3.56v11.47ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z" />
+    </svg>
+  );
+}
+
+const experience = [
+  {
+    role: "AI Forward Deployed Engineer",
+    company: "IBM",
+    period: "Jul 2025 — Present",
+    focus: "Enterprise AI · Automation · Client delivery",
+    summary:
+      "I partner with financial-services teams to move complex AI and automation work from an ambitious idea to a dependable production system.",
+    highlights: [
+      "Led the implementation of IBM Quantum Safe Explorer at Mastercard.",
+      "Owned production delivery of an AI-native internal talent platform built around IBM Bob and SAP SuccessFactors workflows.",
+      "Created deployment documentation for State Farm that supported a multi-million-dollar enterprise agreement.",
+    ],
+    current: true,
+  },
   {
     role: "Associate Developer",
     company: "Prometheus Group",
-    period: "Jan 2024 — June 2025",
+    period: "Jan 2024 — Jun 2025",
+    focus: "Frontend systems · Client-facing · ERP",
     summary:
-      "Built the web-based Planning & Scheduling module of the Prometheus Platform, which is an EAM software used by over 50,000 people across manufacturing, energy, utilities, and other industries worldwide.",
-    metrics: ["FRONTEND", "CLIENT-FACING", "ERP"],
+      "Built the web-based Planning & Scheduling module of an enterprise asset management platform used by more than 50,000 people across manufacturing, energy, and utilities.",
   },
   {
     role: "Web Developer Intern",
     company: "Prometheus Group",
-    period: "Fall/Winter 2023",
+    period: "Fall / Winter 2023",
+    focus: "Product engineering · Frontend · ERP",
     summary:
-      "Contributed to the development of new features for the Prometheus Platform.",
-    metrics: ["FRONTEND", "CLIENT-FACING", "ERP"],
+      "Contributed production features to the Prometheus Platform and learned to build within a large, client-facing product system.",
   },
   {
     role: "Software Engineer Intern",
-    company: "Time's Arrow",
+    company: "Time’s Arrow",
     period: "Summer 2023",
+    focus: "Full stack · Education technology",
     summary:
-      "Worked with a lean team of 3 engineers to develop the Time's Arrow website.",
-    metrics: ["FULL-STACK", "ED-TECH"],
+      "Worked with a three-person engineering team to build and improve the Time’s Arrow learning platform.",
   },
 ];
 
 const projects = [
   {
     name: "LeetBattle",
-    category: "MULTIPLAYER GAME",
+    type: "Real-time product",
     summary:
-      "Built and deployed a real-time, two-player competitive coding platform where friends join private rooms, receive the same programming challenge, and race to submit the first solution that passes a hidden test suite",
-    tags: ["LLMs", "Agents", "Data Flows"],
+      "A two-player competitive coding platform where friends enter a private room, receive the same challenge, and race to pass a hidden test suite.",
+    detail: "Competitive coding · Multiplayer · Real-time systems",
     href: "https://leetbattle.cenough.games/",
   },
   {
     name: "CloseEnough Games",
-    category: "AI",
+    type: "Game platform",
     summary:
-      "Built and launched a unified browser-game platform featuring 11 daily and competitive games across history, literature, sports, music, news, trivia, and coding. ",
-    tags: ["React", "TypeScript", "API Design"],
+      "A unified home for 11 daily and competitive browser games spanning history, literature, sports, music, news, trivia, and coding.",
+    detail: "React · TypeScript · Platform design",
     href: "https://cenough.games",
   },
   {
     name: "Cognate",
-    category: "AI",
+    type: "Desktop AI tool",
     summary:
-      "Describe the project clearly: what it is, why it matters, what stack or architecture it uses, and what outcome it created.",
-    tags: ["React", "TypeScript", "API Design"],
+      "A desktop app for sending one prompt to OpenAI, Anthropic, Gemini, and DeepSeek, then comparing every response side by side.",
+    detail: "Electron · React · Provider APIs",
     href: "https://github.com/kevinshah-dev/cognate",
   },
 ];
 
-const contactLinks = [
+const socialLinks = [
   {
     label: "GitHub",
     href: "https://github.com/kevinshah-dev",
-    icon: FaGithub,
+    icon: GitHubIcon,
   },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/ks539/",
-    icon: FaLinkedin,
+    icon: LinkedInIcon,
   },
-  { label: "Email", href: "mailto:shahkevinh@gmail.com", icon: Mail },
 ];
 
 export default function Home() {
   return (
-    <main>
-      <section className="relative overflow-hidden border-b border-black/10 bg-[#05070a] text-white">
-        <GridLines />
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
-          <div className="col-span-12 border-x border-white/10 py-14 md:py-24">
-            <div className="grid grid-cols-12 gap-8">
-              <motion.div
-                {...fadeUp}
-                className="col-span-12 flex flex-col justify-between md:col-span-7"
-              >
-                <div>
-                  <div className="mb-8 inline-flex items-center gap-2 border border-white/15 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.24em] text-blue-300">
-                    PERSONAL SITE
-                  </div>
-                  <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-white md:text-7xl lg:text-[5.4rem]">
-                    Kevin Shah
-                  </h1>
-                  <p className="mt-8 max-w-2xl text-base leading-7 text-white/68 md:text-lg">
-                    Building thoughtful systems, products, and technical work.
-                  </p>
-                </div>
+    <main id="top">
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="container hero-inner">
+          <motion.div
+            className="hero-status"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="status-dot" aria-hidden="true" />
+            AI Forward Deployed Engineer at IBM
+          </motion.div>
 
-                <div className="mt-10 flex flex-wrap items-center gap-3">
-                  <a
-                    href="#projects"
-                    className="inline-flex items-center gap-2 border border-blue-500 bg-blue-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-500"
-                  >
-                    View Projects <ArrowRight className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-2 border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/5"
-                  >
-                    Get In Touch
-                  </a>
-                </div>
-              </motion.div>
+          <motion.h1
+            id="hero-title"
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          >
+            I build the bridge between ambitious AI and working software.
+          </motion.h1>
+
+          <motion.div
+            className="hero-foot"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="hero-intro">
+              <p>
+                I’m Kevin Shah, a software engineer working across enterprise AI,
+                automation, and product systems. Alongside client work, I build
+                games and tools of my own.
+              </p>
+              <div className="hero-links">
+                <a className="button button-primary" href="#work">
+                  Selected work <ArrowDown aria-hidden="true" />
+                </a>
+                <a className="text-link" href="mailto:shahkevinh@gmail.com">
+                  Get in touch <ArrowUpRight aria-hidden="true" />
+                </a>
+              </div>
             </div>
+
+            <div className="now-note">
+              <span>Now</span>
+              <strong>Building dependable AI systems with enterprise teams.</strong>
+              <small>IBM · July 2025 to present</small>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="section experience-section" id="experience">
+        <div className="container">
+          <SectionHeading>Experience</SectionHeading>
+
+          <div className="career-line">
+            {experience.map((item) => (
+              <article
+                className={`career-item${item.current ? " is-current" : ""}`}
+                key={`${item.company}-${item.role}`}
+              >
+                <time className="career-time">{item.period}</time>
+                <div className="career-marker" aria-hidden="true">
+                  <span />
+                </div>
+                <div className="career-body">
+                  <div className="career-title-row">
+                    <div>
+                      <p className="career-company">{item.company}</p>
+                      <h3>{item.role}</h3>
+                    </div>
+                    {item.current && <span className="current-label">Current</span>}
+                  </div>
+                  <p className="career-focus">{item.focus}</p>
+                  <p className="career-summary">{item.summary}</p>
+                  {item.highlights && (
+                    <ul className="career-highlights">
+                      {item.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="experience" className="relative border-b border-black/10">
-        <LightGridLines />
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
-          <div className="col-span-12 border-x border-black/10 py-10 md:py-14">
-            <div className="mb-6 flex items-center justify-between gap-4 border-b border-black/10 pb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black/55">
-              <span>Experience</span>
+      <section className="section work-section" id="work">
+        <div className="container">
+          <SectionHeading>Selected work</SectionHeading>
+
+          <div className="project-list">
+            {projects.map((project) => (
               <a
-                href="/Kevin_Resume.pdf"
+                className="project-row"
+                href={project.href}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex shrink-0 items-center gap-2 border border-black/10 bg-zinc-950 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white transition hover:bg-blue-700"
+                key={project.name}
+                aria-label={`${project.name}, open project`}
               >
-                View Resume <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            </div>
-
-            <div className="grid grid-cols-12 gap-6">
-              <motion.div {...fadeUp} className="col-span-12 md:col-span-5">
-                <Panel className="h-full p-6 md:p-8">
-                  <div className="flex items-center justify-between border-b border-black/10 pb-5">
-                    <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-700">
-                      {currentRole.eyebrow}
-                    </div>
-                    <Briefcase className="h-4 w-4 text-black/45" />
-                  </div>
-                  <h3 className="mt-6 text-2xl font-semibold tracking-[-0.04em] md:text-4xl">
-                    {currentRole.title}
-                  </h3>
-                  <div className="mt-3 text-sm uppercase tracking-[0.18em] text-black/46">
-                    {currentRole.company} / {currentRole.period}
-                  </div>
-                  <p className="mt-6 text-base leading-7 text-black/66">
-                    {currentRole.summary}
-                  </p>
-                  <div className="mt-8 space-y-3 border-t border-black/10 pt-6">
-                    {currentRole.highlights.map((item) => (
-                      <div
-                        key={item}
-                        className="flex items-start gap-3 text-sm leading-6 text-black/72"
-                      >
-                        <span className="mt-2 h-1.5 w-1.5 bg-blue-600" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </Panel>
-              </motion.div>
-
-              <motion.div
-                {...fadeUp}
-                transition={{ duration: 0.45, ease: "easeOut", delay: 0.06 }}
-                className="col-span-12 md:col-span-7"
-              >
-                <div className="border border-black/10 bg-[#f4f6f8]">
-                  {previousExperience.map((item, index) => (
-                    <div
-                      key={`${item.role}-${item.company}`}
-                      className={`grid grid-cols-12 gap-4 p-6 md:p-8 ${
-                        index !== previousExperience.length - 1
-                          ? "border-b border-black/10"
-                          : ""
-                      }`}
-                    >
-                      <div className="col-span-12 md:col-span-4">
-                        <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-700">
-                          {item.period}
-                        </div>
-                        <h4 className="mt-3 text-xl font-semibold tracking-[-0.04em] text-zinc-950">
-                          {item.role}
-                        </h4>
-                        <div className="mt-2 text-sm text-black/55">
-                          {item.company}
-                        </div>
-                      </div>
-                      <div className="col-span-12 md:col-span-5">
-                        <p className="text-sm leading-7 text-black/66">
-                          {item.summary}
-                        </p>
-                      </div>
-                      <div className="col-span-12 md:col-span-3 md:text-right">
-                        <div className="flex flex-wrap gap-2 md:justify-end">
-                          {item.metrics.map((metric) => (
-                            <span
-                              key={metric}
-                              className="min-w-[5.75rem] shrink-0 whitespace-nowrap border border-black/10 px-2.5 py-1 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-black/58"
-                            >
-                              {metric}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                <div className="project-name">
+                  <p>{project.type}</p>
+                  <h3>{project.name}</h3>
                 </div>
-              </motion.div>
-            </div>
+                <p className="project-summary">{project.summary}</p>
+                <p className="project-detail">{project.detail}</p>
+                <span className="project-arrow" aria-hidden="true">
+                  <ArrowUpRight />
+                </span>
+              </a>
+            ))}
           </div>
+
+          <a
+            className="github-link"
+            href="https://github.com/kevinshah-dev"
+            target="_blank"
+            rel="noreferrer"
+          >
+            More work on GitHub <ArrowRight aria-hidden="true" />
+          </a>
         </div>
       </section>
 
-      <section
-        id="projects"
-        className="relative border-b border-black/10 bg-[#edf1f4]"
-      >
-        <LightGridLines />
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
-          <div className="col-span-12 border-x border-black/10 py-10 md:py-14">
-            <SectionLabel>Selected Projects</SectionLabel>
+      <section className="contact-section" id="contact">
+        <div className="container contact-inner">
+          <div>
+            <p className="contact-kicker">Let’s connect</p>
+            <h2>Have a difficult product problem worth making simpler?</h2>
+          </div>
 
-            <div className="mb-8 grid grid-cols-12 gap-6">
-              <div className="col-span-12 md:col-span-7">
-                <h2 className="max-w-4xl text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
-                  What I'm Working On
-                </h2>
-              </div>
-              <div className="col-span-12 md:col-span-5">
-                <div className="flex md:justify-end">
+          <div className="contact-actions">
+            <p>
+              I’m always interested in thoughtful engineering teams, ambitious
+              systems, and people building useful things.
+            </p>
+            <a className="email-link" href="mailto:shahkevinh@gmail.com">
+              <span>
+                <Mail aria-hidden="true" />
+                shahkevinh@gmail.com
+              </span>
+              <ArrowUpRight aria-hidden="true" />
+            </a>
+            <div className="social-links">
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return (
                   <a
-                    href="https://github.com/kevinshah-dev"
+                    key={link.label}
+                    href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 border border-black/10 bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700 sm:w-auto"
                   >
-                    View GitHub <FaGithub className="h-4 w-4" />
+                    <Icon aria-hidden="true" /> {link.label}
                   </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={project.name}
-                  {...fadeUp}
-                  transition={{
-                    duration: 0.45,
-                    ease: "easeOut",
-                    delay: index * 0.05,
-                  }}
-                  className="border border-black/10 bg-[#f4f6f8]"
-                >
-                  <div className="grid grid-cols-12">
-                    <div className="col-span-12 border-b border-black/10 p-6 md:col-span-4 md:border-b-0 md:border-r md:p-8">
-                      <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-700">
-                        {project.category}
-                      </div>
-                      <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] md:text-3xl">
-                        {project.name}
-                      </h3>
-                      <a
-                        href={project.href}
-                        className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-zinc-950 transition hover:text-blue-700"
-                      >
-                        View Project <ExternalLink className="h-4 w-4" />
-                      </a>
-                    </div>
-
-                    <div className="col-span-12 border-b border-black/10 p-6 md:col-span-5 md:border-b-0 md:border-r md:p-8">
-                      <p className="text-sm leading-7 text-black/68">
-                        {project.summary}
-                      </p>
-                    </div>
-
-                    <div className="col-span-12 p-6 md:col-span-3 md:p-8">
-                      <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-black/45">
-                        Stack / themes
-                      </div>
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="border border-black/10 bg-white/40 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-black/65"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="writing" className="relative border-b border-black/10">
-        <LightGridLines />
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
-          <div className="col-span-12 border-x border-black/10 py-10 md:py-14">
-            <SectionLabel>Writing / Blog</SectionLabel>
-            <div className="grid grid-cols-12 gap-6">
-              <div className="col-span-12 md:col-span-4">
-                <Panel className="h-full p-6 md:p-8">
-                  <div className="flex items-center justify-between border-b border-black/10 pb-5">
-                    <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-700">
-                      Notes & essays
-                    </span>
-                    <FileText className="h-4 w-4 text-black/45" />
-                  </div>
-                  <h2 className="mt-6 text-3xl font-semibold tracking-[-0.05em] md:text-4xl">
-                    A place for ideas, write-ups, and technical thinking.
-                  </h2>
-                  <p className="mt-6 text-sm leading-7 text-black/65">
-                    Use this section for your blog, essays, technical notes, or
-                    reflections on engineering, AI, systems, and product work.
-                  </p>
-                  <Link
-                    to="/blog"
-                    className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-zinc-950 transition hover:text-blue-700"
-                  >
-                    View all posts <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Panel>
-              </div>
-
-              <div className="col-span-12 md:col-span-8">
-                <div className="border border-black/10 bg-[#f4f6f8]">
-                  {posts.map((post, index) => (
-                    <Link
-                      key={post.slug}
-                      to={`/blog/${post.slug}`}
-                      className={`grid grid-cols-12 gap-4 p-6 transition hover:bg-black/[0.015] md:p-8 ${
-                        index !== posts.length - 1
-                          ? "border-b border-black/10"
-                          : ""
-                      }`}
-                    >
-                      <div className="col-span-12 md:col-span-2">
-                        <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-700">
-                          {post.category}
-                        </div>
-                        <div className="mt-3 text-sm text-black/52">
-                          {post.date}
-                        </div>
-                      </div>
-                      <div className="col-span-12 md:col-span-8">
-                        <h3 className="text-xl font-semibold tracking-[-0.03em] text-zinc-950">
-                          {post.title}
-                        </h3>
-                        <p className="mt-3 max-w-2xl text-sm leading-7 text-black/64">
-                          {post.summary}
-                        </p>
-                      </div>
-                      <div className="col-span-12 flex items-start justify-start md:col-span-2 md:justify-end">
-                        <div className="inline-flex items-center gap-2 text-sm font-medium text-black/75">
-                          Read <ChevronRight className="h-4 w-4" />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
+        <footer className="site-footer">
+          <div className="container footer-inner">
+            <span>Kevin Shah</span>
+            <span>AI &amp; product engineering</span>
           </div>
-        </div>
-      </section>
-
-      <section id="contact" className="relative">
-        <LightGridLines />
-        <div className="mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
-          <div className="col-span-12 border-x border-black/10 py-10 md:py-14">
-            <SectionLabel>Contact</SectionLabel>
-            <div className="grid grid-cols-12 gap-6 border border-black/10 bg-[#f4f6f8]">
-              <div className="col-span-12 border-b border-black/10 p-6 md:col-span-7 md:border-b-0 md:border-r md:p-10">
-                <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-blue-700">
-                  Links / reach out
-                </div>
-                <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
-                  Find me on Github, LinkedIn, or send me an email.
-                </h2>
-                <p className="mt-6 max-w-2xl text-base leading-7 text-black/66">
-                  I’m always open to connecting with other people building
-                  interesting things.
-                </p>
-              </div>
-
-              <div className="col-span-12 md:col-span-5">
-                {contactLinks.map((link, index) => {
-                  const Icon = link.icon;
-                  return (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`flex items-center justify-between p-6 transition hover:bg-black/[0.02] md:p-8 ${
-                        index !== contactLinks.length - 1
-                          ? "border-b border-black/10"
-                          : ""
-                      }`}
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-10 w-10 items-center justify-center border border-black/10 bg-white/50">
-                          <Icon className="h-4 w-4 text-zinc-950" />
-                        </div>
-                        <div>
-                          <div className="text-sm font-medium text-zinc-950">
-                            {link.label}
-                          </div>
-                          <div className="text-sm text-black/52">
-                            {link.href.replace("mailto:", "")}
-                          </div>
-                        </div>
-                      </div>
-                      <ArrowRight className="h-4 w-4 text-black/45" />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
+        </footer>
       </section>
     </main>
   );

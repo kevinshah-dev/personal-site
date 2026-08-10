@@ -1,58 +1,40 @@
-import { Link, useLocation } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+
+const navItems = [
+  { label: "Experience", href: "#experience" },
+  { label: "Work", href: "#work" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Header() {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#e9edf1]/90 backdrop-blur-xl">
-      <div className="mx-auto grid max-w-7xl grid-cols-12 px-5 md:px-8">
-        <div className="col-span-12 flex h-16 items-center justify-between md:h-20">
-          <Link
-            to="/"
-            className="text-[15px] font-semibold tracking-[-0.03em] text-zinc-950"
-          >
-            Kevin Shah
-          </Link>
-          <nav className="hidden items-center gap-8 text-sm text-black/65 md:flex">
-            {isHome ? (
-              <>
-                <a href="#about" className="transition hover:text-black">
-                  About
-                </a>
-                <a href="#experience" className="transition hover:text-black">
-                  Experience
-                </a>
-                <a href="#projects" className="transition hover:text-black">
-                  Projects
-                </a>
-              </>
-            ) : (
-              <>
-                <Link to="/#about" className="transition hover:text-black">
-                  About
-                </Link>
-                <Link to="/#experience" className="transition hover:text-black">
-                  Experience
-                </Link>
-                <Link to="/#projects" className="transition hover:text-black">
-                  Projects
-                </Link>
-              </>
-            )}
-            <Link to="/blog" className="transition hover:text-black">
-              Blog
-            </Link>
-            {isHome ? (
-              <a href="#contact" className="transition hover:text-black">
-                Contact
+    <header className="site-header">
+      <div className="container header-inner">
+        <a
+          className="wordmark"
+          href="#top"
+          aria-label="Kevin Shah, back to top"
+        >
+          <span className="wordmark-dot" aria-hidden="true" />
+          Kevin Shah
+        </a>
+
+        <div className="header-actions">
+          <nav className="primary-nav" aria-label="Primary navigation">
+            {navItems.map((item) => (
+              <a key={item.href} href={item.href}>
+                {item.label}
               </a>
-            ) : (
-              <Link to="/#contact" className="transition hover:text-black">
-                Contact
-              </Link>
-            )}
+            ))}
           </nav>
+          <a
+            className="resume-link"
+            href="/Kevin_Shah_Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Résumé <ArrowUpRight aria-hidden="true" />
+          </a>
         </div>
       </div>
     </header>

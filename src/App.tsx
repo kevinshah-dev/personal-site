@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { MotionConfig } from "framer-motion";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 
@@ -14,11 +13,9 @@ export default function App() {
   }, []);
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="site-shell">
-        <Header />
-        <Home />
-      </div>
-    </MotionConfig>
+    <div className="site-shell">
+      <Header />
+      <Home />
+    </div>
   );
 }

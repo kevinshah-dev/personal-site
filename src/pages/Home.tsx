@@ -1,5 +1,4 @@
 import type { SVGProps } from "react";
-import { motion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
@@ -110,36 +109,12 @@ export default function Home() {
     <main id="top">
       <section className="hero" aria-labelledby="hero-title">
         <div className="container hero-inner">
-          <motion.div
-            className="hero-status"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="status-dot" aria-hidden="true" />
-            AI Forward Deployed Engineer at IBM
-          </motion.div>
-
-          <motion.h1
-            id="hero-title"
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          >
-            I build the bridge between ambitious AI and working software.
-          </motion.h1>
-
-          <motion.div
-            className="hero-foot"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <div className="hero-content">
             <div className="hero-intro">
+              <h1 id="hero-title">Kevin Shah</h1>
               <p>
-                I’m Kevin Shah, a software engineer working across enterprise AI,
-                automation, and product systems. Alongside client work, I build
-                games and tools of my own.
+                Software engineer working across enterprise AI, automation, and
+                product systems. I also build games and tools of my own.
               </p>
               <div className="hero-links">
                 <a className="button button-primary" href="#work">
@@ -151,12 +126,15 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="now-note">
-              <span>Now</span>
+            <aside className="now-note" aria-label="Current role at IBM">
+              <div className="now-label">
+                <span className="now-dot" aria-hidden="true" />
+                IBM / Now
+              </div>
               <strong>Building dependable AI systems with enterprise teams.</strong>
-              <small>IBM · July 2025 to present</small>
-            </div>
-          </motion.div>
+              <small>Since July 2025</small>
+            </aside>
+          </div>
         </div>
       </section>
 
@@ -238,16 +216,9 @@ export default function Home() {
 
       <section className="contact-section" id="contact">
         <div className="container contact-inner">
-          <div>
-            <p className="contact-kicker">Let’s connect</p>
-            <h2>Have a difficult product problem worth making simpler?</h2>
-          </div>
+          <h2>Let’s connect</h2>
 
           <div className="contact-actions">
-            <p>
-              I’m always interested in thoughtful engineering teams, ambitious
-              systems, and people building useful things.
-            </p>
             <a className="email-link" href="mailto:shahkevinh@gmail.com">
               <span>
                 <Mail aria-hidden="true" />
